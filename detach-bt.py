@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 import subprocess
 import sys
@@ -98,5 +98,8 @@ run_parser.set_defaults(func=run_and_save)
 run_parser.add_argument('prog', nargs='?', default='compiz')
 
 args_ns, cmd_args = parser.parse_known_args()
-print(args_ns, cmd_args)
-args_ns.func(args_ns, cmd_args)
+
+if cmd_args:
+	args_ns.func(args_ns, cmd_args)
+else:
+	parser.print_usage()
